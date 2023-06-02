@@ -1,8 +1,8 @@
-"Mixin" layer for adding Rust 1.69.x toolchain into the Yocto Project LTS.
+"Mixin" layer for adding Rust 1.70.x toolchain into the Yocto Project LTS.
 
 At the time Kirkstone was released in May 2022 it included Rust 1.59.0,
 and officially Kirkstone supports only that. This thin special-purpose
-mixin layer is meant to provide a working Rust 1.69.x toolchain for
+mixin layer is meant to provide a working Rust 1.70.x toolchain for
 Kirkstone by backporting the appropriate recipes from the nanbield
 branch of openembedded-core.
 
