@@ -51,7 +51,7 @@ def rust_base_triple(d, thing):
     if d.getVar('{}_ARCH'.format(thing)) == d.getVar('TARGET_ARCH') and target_is_armv7(d):
         arch = "armv7"
     else:
-        arch = oe.rust.arch_to_rust_arch(d.getVar('{}_ARCH'.format(thing)))
+        arch = mixin.rust.arch_to_rust_arch(d.getVar('{}_ARCH'.format(thing)))
 
     # Substituting "unknown" when vendor is empty will match rust's standard
     # targets when building native recipes (including rust-native itself)
@@ -77,7 +77,7 @@ def rust_base_triple(d, thing):
 
 
 # In some cases uname and the toolchain differ on their idea of the arch name
-RUST_BUILD_ARCH = "${@oe.rust.arch_to_rust_arch(d.getVar('BUILD_ARCH'))}"
+RUST_BUILD_ARCH = "${@mixin.rust.arch_to_rust_arch(d.getVar('BUILD_ARCH'))}"
 
 # Naming explanation
 # Yocto
