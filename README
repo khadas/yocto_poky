@@ -7,11 +7,11 @@ Kirkstone by backporting the appropriate recipes from the nanbield
 branch of openembedded-core.
 
 Notes:
-- cargo-update-recipe-crates.bbclass has been left out of the backport
-  since it would bump the Python requirement to 3.11, and that is a
-  bigger can of worms than this mixin attempts to address.  It is
-  recommended that recipe crates .inc files are updated using a newer
-  YP release and backported.
+=======
+- cargo-update-recipe-crates.bbclass has been backported with a tweak to
+  use host rather than native Python since kirkstone does not have a new
+  enough Python (3.11 is required).  Using the update task in the class
+  will fail unless the host environment contains Python 3.11 or newer.
 - The newer version of librsvg from nanbield has been backported since
   there is not a straightforward way to update the existing one via
   bbappend.  Backporting a working recipe should be easier to maintain
