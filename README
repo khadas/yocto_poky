@@ -20,6 +20,17 @@ Notes:
   more potential impact due to upstream API changes and its known to be
   finicky build.  This may change if sufficient rationale for doing the
   backport becomes apparent.
+- While changes to Rust recipe and class files related to oe-selftest
+  support are included by necessity, no effort has been made to backport
+  the actual addition of Rust to oe-selftest, as that is considered too
+  invasive and maintenance heavy.
+- To include Rust support in a SDK, do the following in e.g. local.conf:
+
+  TOOLCHAIN_HOST_TASK:append = " packagegroup-rust-cross-canadian-${MACHINE}"
+  TOOLCHAIN_TARGET_TASK:append = " multilib_pkg_extend(d, 'libstd-rs')"
+
+  Overriding populate_sdk_base.bbclass to avoid needing to do this seems
+  too invasive for this layer.
 - The intent is to track any further upgrades that occur in the master
   branch of oe-core, with an expected end of support in April 2026, the
   same as Yocto Project's planned EOL for Kirkstone (per
